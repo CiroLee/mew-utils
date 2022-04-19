@@ -6,7 +6,7 @@ const weekMapEn = [
   { val: 'Sunday', abbr: 'Sun.' },
   { val: 'Monday', abbr: 'Mon.' },
   { val: 'Tuesday', abbr: 'Tue.' },
-  { val: 'Wednesday', abbr: 'Web.' },
+  { val: 'Wednesday', abbr: 'Wed.' },
   { val: 'Thursday', abbr: 'Thu.' },
   { val: 'Friday', abbr: 'Fri.' },
   { val: 'Saturday', abbr: 'Sat.' },
