@@ -57,3 +57,16 @@ describe('isEmptyObject test', () => {
     expect(validator.isEmptyObject(param)).toBeFalsy();
   });
 });
+
+describe('isLeap test', () => {
+  test('ISLEAP: judge input year is leap', () => {
+    const year1 = 1996;
+    const year2 = 2001;
+    const year3 = 2100;
+    const year4 = 2400;
+    expect(validator.isLeap(year1)).toBeTruthy();
+    expect(validator.isLeap(year2)).toBeFalsy();
+    expect(validator.isLeap(year3)).toBeFalsy();
+    expect(validator.isLeap(year4)).toBeTruthy();
+  });
+});

@@ -4,11 +4,17 @@
 
 # 安装
 
-```javascript
-// npm
+npm
+```shell
 npm install mew-utils
-// yarn
+```
+yarn
+```shell
 yarn install mew-utils
+```
+pnpm
+```shell
+pnpm install mew-utils
 ```
 
 # 使用

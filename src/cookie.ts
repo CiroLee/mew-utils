@@ -1,5 +1,5 @@
 import { CookieParam, ObjType, Nullish } from '@src/types';
-const ONE_HOUR = 60 * 60 * 1000;
+import { ONE_HOUR } from './constants';
 
 export class Cookie {
   /**

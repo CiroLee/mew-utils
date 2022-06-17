@@ -13,3 +13,8 @@ export interface Week {
   lang?: string; // 语言 zh:中文 en: 英文
   abbr?: boolean; // 是否输出简写, 仅英文有效
 }
+
+export interface StorageItem {
+  value: ObjType | BaseType;
+  expires?: number;
+}

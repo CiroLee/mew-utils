@@ -32,3 +32,13 @@ export const isEmptyObject = <T>(param: ObjType | T): boolean => {
   }
   return !Object.keys(param).length;
 };
+
+/**
+ * @desc 判断年份是否为闰年
+ */
+export const isLeap = (year: number): boolean => {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return true;
+  }
+  return false;
+};

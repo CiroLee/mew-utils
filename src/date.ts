@@ -29,7 +29,6 @@ export const week = (param?: Week | Time): string | Nullish => {
     };
   }
   const { date, lang, abbr } = weekParam;
-  console.log('weeks', param);
   const weekIndex = date ? new Date(date).getDay() : new Date().getDay();
   if (lang === 'zh') return weekIndex > -1 ? weekMapZh[weekIndex] : null;
   // 仅英文可以返回星期简写
