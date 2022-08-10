@@ -47,3 +47,12 @@ isEmptyObject({ a: 1 }); // false
 isEmptyObject([]); // true
 isEmptyObject(null); // false
 ```
+
+### isValidDate(date: any): boolean     
+> 验证是否为有效日期     
+
+```typescript
+isValidDate('2022 12 12'); // true
+isValidDate('2022-12-12 T12:12:00'); // false
+isValidDate({}); // false
+```

@@ -2,23 +2,23 @@ import * as validator from '@src/validator';
 const mockArr = [1, 2, -1, 0];
 
 describe('isAllTrue test', () => {
-  test('ISALLTRUE: isAllTrue that uses default callback function', () => {
-    const result = validator.isAlltrue(mockArr);
+  test('isAllTrue: isAllTrue that uses default callback function', () => {
+    const result = validator.isAllTrue(mockArr);
     expect(result).toBeFalsy();
   });
-  test('ISALLTRUE: isAllTure that uses custom callback function', () => {
-    const result = validator.isAlltrue(mockArr, (item: number) => item > -1);
+  test('isAllTrue: isAllTure that uses custom callback function', () => {
+    const result = validator.isAllTrue(mockArr, (item: number) => item > -1);
     expect(result).toBeFalsy();
   });
 });
 
 describe('isAnyTrue test', () => {
-  test('ISANYTRUE: isAnyTrue that use default callback function', () => {
-    const reuslt = validator.isAnytrue(mockArr);
+  test('isAnyTrue: isAnyTrue that use default callback function', () => {
+    const reuslt = validator.isAnyTrue(mockArr);
     expect(reuslt).toBeTruthy();
   });
-  test('ISANYTRUE: isAnyTure that uses custom callback function', () => {
-    const result = validator.isAnytrue(mockArr, (item: number) => item > -1);
+  test('isAnyTrue: isAnyTure that uses custom callback function', () => {
+    const result = validator.isAnyTrue(mockArr, (item: number) => item > -1);
     expect(result).toBeTruthy();
   });
 });
@@ -68,5 +68,21 @@ describe('isLeap test', () => {
     expect(validator.isLeap(year2)).toBeFalsy();
     expect(validator.isLeap(year3)).toBeFalsy();
     expect(validator.isLeap(year4)).toBeTruthy();
+  });
+});
+
+describe('isValidDate test', () => {
+  test('ISVALIDDATE: assert the input is valid date', () => {
+    const d1 = '2022年12月12日';
+    const d2 = '2022 12 12';
+    const d3 = '2022-12-12T12:12:00';
+    const d4 = '2022-12-12 T12:12:00';
+    const d5 = {};
+
+    expect(validator.isValidDate(d1)).toBeFalsy();
+    expect(validator.isValidDate(d2)).toBeTruthy();
+    expect(validator.isValidDate(d3)).toBeTruthy();
+    expect(validator.isValidDate(d4)).toBeFalsy();
+    expect(validator.isValidDate(d5)).toBeFalsy();
   });
 });

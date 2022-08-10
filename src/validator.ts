@@ -6,7 +6,7 @@ import { getType } from './common';
  * @param fn function, 判断函数, 默认为Boolean函数
  * @returns boolean
  */
-export const isAlltrue = <T = boolean>(arr: T[], fn = (p: T): boolean => Boolean(p)): boolean => arr.every(fn);
+export const isAllTrue = <T = boolean>(arr: T[], fn = (p: T): boolean => Boolean(p)): boolean => arr.every(fn);
 
 /**
  * @desc 数组中任意一个元素为真值，则返回true
@@ -14,7 +14,7 @@ export const isAlltrue = <T = boolean>(arr: T[], fn = (p: T): boolean => Boolean
  * @param fn function, 判断函数, 默认为Boolean函数
  * @returns boolean
  */
-export const isAnytrue = <T = boolean>(arr: T[], fn = (p: T): boolean => Boolean(p)): boolean => arr.some(fn);
+export const isAnyTrue = <T = boolean>(arr: T[], fn = (p: T): boolean => Boolean(p)): boolean => arr.some(fn);
 
 /**
  * @desc 判断输入是否为数字或是否可以转换为数字
@@ -42,3 +42,7 @@ export const isLeap = (year: number): boolean => {
   }
   return false;
 };
+/**
+ * @desc 是否为有效日期
+ */
+export const isValidDate = (date: any): boolean => !Number.isNaN(new Date(date).valueOf());

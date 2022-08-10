@@ -2,7 +2,7 @@
 
 > 常用日期处理函数
 
-### week(param: string | [Week](../src/types.ts)): string | Nullish
+### week(param?: string | [Week](../src/types.ts) | [Time](../src/types.ts)): string | Nullish
 
 > 获取星期数，默认返回中文日期；如果需要返回英文日期或英文简写日期，入参格式参考[Week](../src/types.ts)
 
@@ -28,4 +28,17 @@ week({
   lang: 'en',
   attr: true,
 }); // 'Tue.' 英文星期简写末尾有点号
+```
+
+### dateFormat(date: [Time](../src/types.ts), option?: string | boolean | [DateFormatOption](../src/types.ts)): string      
+> 日期格式化。默认格式为: yyyy-mm-dd HH:MM:SS。option为string类型时，表示格式字符串，option为布尔类型时，表示是否日期补零。二者都需要配置时，使用DateFormatOption类型         
+
+```typescript
+dateFormat(1642479132 * 1000); // 2022-01-18 12:12:12
+dateFormat(1642479132 * 1000, false); // 2022-1-18 12:12:12
+dateFormat(1642479132 * 1000, 'yyyy/mm/dd'); // 2022/01/18
+dateFormat(1642479132 * 1000, {
+  format: 'yyyy/mm/dd HH:MM:SS',
+  padZero: false
+}); // 2022/1/18 12:12:12
 ```

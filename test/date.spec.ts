@@ -1,7 +1,7 @@
 import * as date from '@src/date';
-const mockDate = new Date('2022-1-18'); // 星期二
+const mockDate = new Date('2022-1-18 12:12:12'); // 星期二
 const mockWeeks = ['日', ' 一', '二', '三', '四', '五', '六'];
-describe('date test', () => {
+describe('week test', () => {
   test('WEEK: get week by Date input', () => {
     const week = date.week(mockDate);
     expect(week).toBe('二');
@@ -27,5 +27,31 @@ describe('date test', () => {
       abbr: true,
     };
     expect(date.week(week)).toBe('Tue.');
+  });
+});
+
+describe('dateFormat test', () => {
+  test('DATEFORMAT: no option', () => {
+    const result = date.dateFormat(mockDate);
+    expect(result).toBe('2022-01-18 12:12:12');
+  });
+  test('DATEFORMAT: option is boolean type true', () => {
+    const result = date.dateFormat(mockDate, false);
+    expect(result).toBe('2022-1-18 12:12:12');
+  });
+  test('DATEFORMAT: option is string type', () => {
+    const result = date.dateFormat(mockDate, 'yyyy/mm/dd');
+    expect(result).toBe('2022/01/18');
+  });
+  test('DATEFORMAT: option is object', () => {
+    const result = date.dateFormat(mockDate, {
+      format: 'yyyy/mm/dd HH:MM',
+      padZero: false,
+    });
+    expect(result).toBe('2022/1/18 12:12');
+  });
+  test('DATEFORMAT: date is timestamp', () => {
+    const result = date.dateFormat(1642479132 * 1000);
+    expect(result).toBe('2022-01-18 12:12:12');
   });
 });
