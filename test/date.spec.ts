@@ -59,17 +59,18 @@ describe('dateFormat test', () => {
     expect(result).toBe('2022/1/18 12:12');
   });
   test('DATEFORMAT: date is timestamp', () => {
-    const result = date.dateFormat(1642479132 * 1000);
-    expect(result).toBe('2022-01-18 12:12:12');
+    // github action 在美区， 时区差8h
+    const result = date.dateFormat(1642479132 * 1000 - 28800000);
+    expect(result).toBe('2022-01-18 04:12:12');
   });
   test('DATEFORMAT: format is invalid', () => {
     const result = date.dateFormat(1642479132 * 1000, 'yy-mm-dd');
     expect(result).toBe('-01-18');
   });
   test('DATEFORMAT: padZero is false', () => {
-    const result = date.dateFormat(1642479132 * 1000, {
+    const result = date.dateFormat(1642479132 * 1000 - 28800000, {
       padZero: false,
     });
-    expect(result).toBe('2022-1-18 12:12:12');
+    expect(result).toBe('2022-1-18 4:12:12');
   });
 });
