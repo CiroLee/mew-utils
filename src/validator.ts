@@ -26,7 +26,7 @@ export const isNumberLike = (value: unknown): boolean => !isNaN(Number(value));
 /**
  * @desc 判断输入是否为空对象
  */
-export const isEmptyObject = <T>(param: ObjType | T): boolean => {
+export const isEmptyObject = <T>(param: ObjType & T): boolean => {
   if (getType(param) !== 'object' && getType(param) !== 'array') {
     return false;
   }

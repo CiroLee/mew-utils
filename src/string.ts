@@ -4,8 +4,7 @@
  */
 export const encryptedPhone = (num: string | number): string | number => {
   if (num.toString().length < 11) {
-    console.error('invalid phone number, its length should be 11');
-    return num;
+    throw new Error('phone number must be 11 degits');
   }
   return num.toString().replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
 };
@@ -17,7 +16,7 @@ export const upperCaseFirstLetter = (str: string): string => {
   if (typeof str !== 'string') {
     return str;
   }
-  return str.replace(/^\S/, L => L.toUpperCase());
+  return str.replace(/^\S/, (L) => L.toUpperCase());
 };
 /**
  * @desc 返回指定数量的空格

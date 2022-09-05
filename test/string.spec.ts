@@ -3,8 +3,9 @@ import * as str from '@src/string';
 describe('encryptedPhone test', () => {
   test('ENCRYPTEDPHONE: invalid phone and return itself', () => {
     const phomeNum = 123456;
-    const result = str.encryptedPhone(phomeNum);
-    expect(result).toBe(phomeNum);
+    expect(() => {
+      str.encryptedPhone(phomeNum);
+    }).toThrowError();
   });
   test('ENCRYPTEDPHONE: valid phone number and hide its middle four digits', () => {
     const phomeNum = 13700001111;
@@ -20,7 +21,7 @@ describe('upperCaseFirstLetter test', () => {
   });
   test('UPPERCASEFIRSTLETTER: param is a not string', () => {
     const param = ['i am a boy'];
-    expect(str.upperCaseFirstLetter(param)).toEqual(param);
+    expect(str.upperCaseFirstLetter(param as unknown as string)).toEqual(param);
   });
 });
 

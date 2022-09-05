@@ -28,6 +28,14 @@ describe('week test', () => {
     };
     expect(date.week(week)).toBe('Tue.');
   });
+  test('WEEK: return null', () => {
+    const week = {
+      date: 'date',
+      lang: 'en',
+    };
+    expect(date.week({ ...week, abbr: true })).toBeNull();
+    expect(date.week(week)).toBeNull();
+  });
 });
 
 describe('dateFormat test', () => {
@@ -53,5 +61,15 @@ describe('dateFormat test', () => {
   test('DATEFORMAT: date is timestamp', () => {
     const result = date.dateFormat(1642479132 * 1000);
     expect(result).toBe('2022-01-18 12:12:12');
+  });
+  test('DATEFORMAT: format is invalid', () => {
+    const result = date.dateFormat(1642479132 * 1000, 'yy-mm-dd');
+    expect(result).toBe('-01-18');
+  });
+  test('DATEFORMAT: padZero is false', () => {
+    const result = date.dateFormat(1642479132 * 1000, {
+      padZero: false,
+    });
+    expect(result).toBe('2022-1-18 12:12:12');
   });
 });
