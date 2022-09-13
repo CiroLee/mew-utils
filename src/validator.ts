@@ -1,5 +1,5 @@
 import { ObjType } from './types';
-import { getType } from './common';
+import { getType } from './utils';
 /**
  * @desc 判断数组中所有元素是否都为真值
  * @param arr any[] 待处理的数组

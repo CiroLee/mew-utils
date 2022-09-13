@@ -6,7 +6,7 @@ export default defineConfig((options: Options) => {
     outDir: 'lib',
     format: ['esm'],
     dts: true,
-    minify: true,
+    minify: !options.watch,
     watch: options.watch,
     clean: true,
     platform: 'browser',

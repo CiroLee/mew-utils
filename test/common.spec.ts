@@ -1,4 +1,4 @@
-import * as common from '@src/common';
+import * as common from '@src/utils';
 
 describe('getType function test', () => {
   test('GETTYPE: undefined type', () => {
@@ -26,7 +26,7 @@ describe('getType function test', () => {
     expect(
       common.getType(() => {
         console.log(123);
-      })
+      }),
     ).toBe('function');
   });
   test('GETTYPE: Date type', () => {

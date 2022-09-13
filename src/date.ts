@@ -1,5 +1,5 @@
 import type { Nullish, Week, Time, DateFormatOption } from '@src/types';
-import { getType } from './common';
+import { getType } from './utils';
 import { zeroFill } from './math';
 import { isAllTrue } from './validator';
 const weekMapZh = ['日', ' 一', '二', '三', '四', '五', '六'];

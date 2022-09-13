@@ -31,4 +31,4 @@ console.log(res); // 'symbol'
 
 # API
 
-[API 文档](docs/README.md)
+[API 文档](https://github.com/CiroLee/mew-utils/blob/main/docs/README.md)
