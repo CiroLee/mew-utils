@@ -6,5 +6,5 @@ export * from './validator';
 export * from './cookie';
 export * from './string';
 export * from './storage';
-// 到处类型文件
+// export type file
 export * from './types';

@@ -54,7 +54,7 @@ describe('isEmptyObject test', () => {
   });
   test('ISEMPTYOBJECT: param is null', () => {
     const param = null;
-    expect(validator.isEmptyObject(param)).toBeFalsy();
+    expect(validator.isEmptyObject(param as any)).toBeFalsy();
   });
 });
 
@@ -84,5 +84,27 @@ describe('isValidDate test', () => {
     expect(validator.isValidDate(d3)).toBeTruthy();
     expect(validator.isValidDate(d4)).toBeFalsy();
     expect(validator.isValidDate(d5)).toBeFalsy();
+  });
+});
+describe('IsPrime test', () => {
+  test('ISPRIME: num is integer', () => {
+    const result = validator.IsPrime(23);
+    expect(result).toBeTruthy();
+  });
+  test('ISPRIME: num is 2', () => {
+    const result = validator.IsPrime(2);
+    expect(result).toBeTruthy();
+  });
+  test('ISPRIME: num is Infinity', () => {
+    expect(() => {
+      validator.IsPrime(Infinity);
+    }).toThrowError();
+  });
+  test('ISPRIME: invalid num', () => {
+    const nums = [-1, 0, 1, 1.2];
+    nums.forEach((n) => {
+      const result = validator.IsPrime(n);
+      expect(result).toBeFalsy();
+    });
   });
 });

@@ -11,13 +11,13 @@ module.exports = {
     '^@src/(.*)$': '<rootDir>/src/$1',
   },
   transform: {
-    '^.+\\.ts$': 'ts-jest',
-  },
-  globals: {
-    'ts-jest': {
-      babelConfig: true,
-      isolatedModules: true,
-    },
+    '<transform_regex>': [
+      'ts-jest',
+      {
+        babelConfig: true,
+        isolatedModules: true,
+      },
+    ],
   },
   reporters: ['default'],
 };

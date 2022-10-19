@@ -46,3 +46,22 @@ export const isLeap = (year: number): boolean => {
  * @desc 是否为有效日期
  */
 export const isValidDate = (date: any): boolean => !Number.isNaN(new Date(date).valueOf());
+
+/**
+ * @desc 是否为质数(素数)
+ */
+export const IsPrime = (num: number): boolean => {
+  if (!Number.isFinite(num)) {
+    throw new Error(`IsPrime: ${num} is not a valid number`);
+  }
+  if (num <= 1 || !Number.isInteger(num)) {
+    return false;
+  }
+  if (num === 2) return true;
+  for (let i = 2; i < Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
