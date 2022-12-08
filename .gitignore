@@ -3,3 +3,4 @@ lib
 node_modules
 coverage
 .Ds_Store
+playground.js
