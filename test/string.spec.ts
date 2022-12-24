@@ -15,13 +15,17 @@ describe('encryptedPhone test', () => {
 });
 
 describe('upperCaseFirstLetter test', () => {
-  test('UPPERCASEFIRSTLETTER: param is a string', () => {
+  test('UPPERCASEFIRSTLETTER: param is a string, to upper', () => {
     const param = 'i am a boy';
-    expect(str.upperCaseFirstLetter(param)).toBe('I am a boy');
+    expect(str.transFirstLetterBy(param, 'upper')).toBe('I am a boy');
+  });
+  test('TRANSFIRSTLETTERBY: to lower', () => {
+    const param = 'I am A boy';
+    expect(str.transFirstLetterBy(param, 'lower')).toBe('i am A boy');
   });
   test('UPPERCASEFIRSTLETTER: param is a not string', () => {
     const param = ['i am a boy'];
-    expect(str.upperCaseFirstLetter(param as unknown as string)).toEqual(param);
+    expect(str.transFirstLetterBy(param as unknown as string, 'lower')).toEqual(param);
   });
 });
 
@@ -30,5 +34,62 @@ describe('whiteSpace test', () => {
     const result = `${str.whiteSpace(2)}123`;
     expect(result).toHaveLength(5);
     expect(result.match(/\s/g)).toHaveLength(2);
+  });
+});
+
+describe('camelcase and pascalcase test', () => {
+  test('camelCase', () => {
+    const strArr = [
+      {
+        s: 'foo-bar',
+        v: 'fooBar',
+      },
+      {
+        s: 'foo_bar',
+        v: 'fooBar',
+      },
+      {
+        s: 'Foo-Bar',
+        v: 'fooBar',
+      },
+      {
+        s: 'Foo-bar',
+        v: 'fooBar',
+      },
+      {
+        s: '_foo-bar',
+        v: 'fooBar',
+      },
+    ];
+    strArr.forEach((el) => {
+      expect(str.camelCase(el.s)).toBe(el.v);
+    });
+  });
+  test('pascalCase', () => {
+    const strArr = [
+      {
+        s: 'foo-bar',
+        v: 'FooBar',
+      },
+      {
+        s: 'foo_bar',
+        v: 'FooBar',
+      },
+      {
+        s: 'Foo-Bar',
+        v: 'FooBar',
+      },
+      {
+        s: 'Foo-bar',
+        v: 'FooBar',
+      },
+      {
+        s: '_foo-bar',
+        v: 'FooBar',
+      },
+    ];
+    strArr.forEach((el) => {
+      expect(str.pascalCase(el.s)).toBe(el.v);
+    });
   });
 });

@@ -1,6 +1,11 @@
 import { ObjType, BaseType, StorageItem } from '@src/types';
 import { ONE_HOUR } from './constants';
 export class Storage {
+  /*
+   * @desc 设置任意值得storage。过期时间以小时为单位[可选]
+   * @param key storage的key
+   * @param value storage的值。可以是基础类型和引用类型的值
+   */
   static set(key: string, value: ObjType | BaseType, expireHour?: number): boolean {
     const obj: StorageItem = {
       value,
@@ -18,6 +23,11 @@ export class Storage {
     localStorage.setItem(key, stringify);
     return true;
   }
+  /*
+   * @desc 获取storage
+   * @param key storage的key
+   * @param ignoreExpire 是否忽略过期时间。默认为false
+   */
   static get(key: string, ignoreExpire = false): ObjType | BaseType | undefined {
     const data = localStorage.getItem(key);
     if (!data) return data;
@@ -34,7 +44,10 @@ export class Storage {
     }
     return value;
   }
-
+  /*
+   * @desc 删除一个storage
+   * @param key 要删除的storage的key
+   */
   static delete(key: string): void {
     localStorage.removeItem(key);
   }
