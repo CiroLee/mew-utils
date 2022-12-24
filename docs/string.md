@@ -37,6 +37,17 @@ camelCase('FooBar'); // fooBar
 > 字符串转为 pascalCase 格式
 
 ```typescript
-pascalCase('foo-bar'); // fooBar
-pascalCase('FooBar'); // fooBar
+pascalCase('foo-bar'); // FooBar
+pascalCase('Foo-Bar'); // FooBar
+```
+### replaceAt(str: string, index: number, char: string): string     
+> 替换字符串中指定索引位置的字符       
+```typescript
+replaceAt('footbar', 3, 'T'); // fooTbar
+```
+
+### deleteAt(str: string, index: number): string     
+> 删除字符串中指定索引位置的字符   
+```typescript
+deleteAt('footbar', 3); // foobar
 ```

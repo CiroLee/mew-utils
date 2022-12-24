@@ -40,3 +40,23 @@ export const pascalCase = (str: string): string => {
   const matches = str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g) as RegExpExecArray;
   return matches.map((x) => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase()).join('');
 };
+
+/*
+ * @desc 删除字符串中的指定索引的字符
+ * @param str 目标字符串
+ * @param index 删除位置索引
+ */
+export const deleteAt = (str: string, index: number): string => {
+  return str.substring(0, index) + str.substring(index + 1);
+};
+
+/*
+@desc 替换字符串中指定索引的字符
+@param str 目标字符串
+@param char 替换的字符
+@param index 替换位置索引
+
+*/
+export const replaceAt = (str: string, index: number, char: string): string => {
+  return str.substring(0, index) + char + str.substring(index + 1);
+};

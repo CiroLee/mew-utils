@@ -93,3 +93,12 @@ describe('camelcase and pascalcase test', () => {
     });
   });
 });
+
+describe('replaceAr and deleteAt test', () => {
+  test('deleteAt', () => {
+    expect(str.deleteAt('footbar', 3)).toBe('foobar');
+  });
+  test('replaceAt', () => {
+    expect(str.replaceAt('footbar', 3, 'T')).toBe('fooTbar');
+  });
+});

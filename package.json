@@ -1,6 +1,6 @@
 {
   "name": "mew-utils",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "useful collections of javascript written by typescript",
   "browser": "lib/index.mjs",
   "types": "lib/index.d.ts",
