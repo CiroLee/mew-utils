@@ -10,9 +10,9 @@
 encryptedPhone(13311112222); // '133****2222'
 ```
 
-### 将字符串首字母大写(str: string, to: 'upper' | 'lower'): string
+### transFirstLetterBy(str: string, to: 'upper' | 'lower'): string
 
-> 字符串搜字母大小写转换
+> 字符串首字母大小写转换
 
 ```typescript
 transFirstLetterBy('abc'); // 'Abc'
@@ -40,14 +40,19 @@ camelCase('FooBar'); // fooBar
 pascalCase('foo-bar'); // FooBar
 pascalCase('Foo-Bar'); // FooBar
 ```
-### replaceAt(str: string, index: number, char: string): string     
-> 替换字符串中指定索引位置的字符       
+
+### replaceAt(str: string, index: number, char: string): string
+
+> 替换字符串中指定索引位置的字符
+
 ```typescript
 replaceAt('footbar', 3, 'T'); // fooTbar
 ```
 
-### deleteAt(str: string, index: number): string     
-> 删除字符串中指定索引位置的字符   
+### deleteAt(str: string, index: number): string
+
+> 删除字符串中指定索引位置的字符
+
 ```typescript
 deleteAt('footbar', 3); // foobar
 ```
