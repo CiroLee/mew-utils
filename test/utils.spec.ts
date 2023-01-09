@@ -32,7 +32,7 @@ describe('getType function test', () => {
   test('GETTYPE: Date type', () => {
     expect(utils.getType(new Date('2022'))).toBe('date');
   });
-  test('THROTTLE: thtottle test', (done) => {
+  test('THROTTLE: throttle test', (done) => {
     const mockFn = jest.fn();
     // async call throttle twice
     const fn = utils.throttle(mockFn, 10);

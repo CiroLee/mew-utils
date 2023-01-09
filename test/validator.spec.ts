@@ -101,7 +101,7 @@ describe('IsPrime test', () => {
     }).toThrowError();
   });
   test('ISPRIME: invalid num', () => {
-    const nums = [-1, 0, 1, 1.2];
+    const nums = [-1, 0, 1, 1.2, 4];
     nums.forEach((n) => {
       const result = validator.IsPrime(n);
       expect(result).toBeFalsy();
