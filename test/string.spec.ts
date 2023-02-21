@@ -2,14 +2,14 @@ import * as str from '@src/string';
 
 describe('encryptedPhone test', () => {
   test('ENCRYPTEDPHONE: invalid phone and return itself', () => {
-    const phomeNum = 123456;
+    const phoneNum = 123456;
     expect(() => {
-      str.encryptedPhone(phomeNum);
+      str.encryptedPhone(phoneNum);
     }).toThrowError();
   });
   test('ENCRYPTEDPHONE: valid phone number and hide its middle four digits', () => {
-    const phomeNum = 13700001111;
-    const result = str.encryptedPhone(phomeNum);
+    const phoneNum = 13700001111;
+    const result = str.encryptedPhone(phoneNum);
     expect(result).toBe('137****1111');
   });
 });
@@ -37,7 +37,7 @@ describe('whiteSpace test', () => {
   });
 });
 
-describe('camelcase and pascalcase test', () => {
+describe('string case convert test', () => {
   test('camelCase', () => {
     const strArr = [
       {
@@ -90,6 +90,56 @@ describe('camelcase and pascalcase test', () => {
     ];
     strArr.forEach((el) => {
       expect(str.pascalCase(el.s)).toBe(el.v);
+    });
+  });
+  test('snakeCase', () => {
+    const strArr = [
+      {
+        s: 'foo-bar',
+        v: 'foo_bar',
+      },
+      {
+        s: 'Foo-Bar',
+        v: 'foo_bar',
+      },
+      {
+        s: 'Foo-bar',
+        v: 'foo_bar',
+      },
+      {
+        s: 'foo bar',
+        v: 'foo_bar',
+      },
+      {
+        s: 'Foo-bar rest',
+        v: 'foo_bar_rest'
+      }
+    ];
+    strArr.forEach((el) => {
+      expect(str.snakeCase(el.s)).toBe(el.v);
+    });
+  });
+  test('kebabCase', () => {
+    const strArr = [
+      {
+        s: 'fooBar',
+        v: 'foo-bar',
+      },
+      {
+        s: 'FooBar',
+        v: 'foo-bar',
+      },
+      {
+        s: 'foo bar',
+        v: 'foo-bar',
+      },
+      {
+        s: 'Foo-bar rest',
+        v: 'foo-bar-rest'
+      }
+    ];
+    strArr.forEach((el) => {
+      expect(str.kebabCase(el.s)).toBe(el.v);
     });
   });
 });

@@ -2,7 +2,7 @@
 
 > 常用 string 处理函数
 
-### encryptedPhone(num: string | number): string | number
+### encryptedPhone(num: string | number): string
 
 > 隐藏手机中文四位数
 
@@ -15,8 +15,9 @@ encryptedPhone(13311112222); // '133****2222'
 > 字符串首字母大小写转换
 
 ```typescript
-transFirstLetterBy('abc'); // 'Abc'
-transFirstLetterBy('abc-de'); // 'Abc-de'
+transFirstLetterBy('abc', 'upper'); // Abc
+transFirstLetterBy('abc-de', 'upper'); // Abc-de''
+transFirstLetterBy('ABC', 'lower'); // aBC
 ```
 
 ### whiteSpace(num: number): string
@@ -39,6 +40,22 @@ camelCase('FooBar'); // fooBar
 ```typescript
 pascalCase('foo-bar'); // FooBar
 pascalCase('Foo-Bar'); // FooBar
+```
+
+### kebabCase(str: string): string       
+
+> 字符串转kebab-case     
+```typescript
+kebabCase('FooBar'); // foo-bar
+kebabCase('foo bar'); // foo-bar
+```
+
+### snakeCase(str: string): string      
+
+> 字符串转snake_case       
+```typescript
+snakeCase('fooBar'); // foo_bar
+snakeCase('FooBar'); // foo_bar
 ```
 
 ### replaceAt(str: string, index: number, char: string): string
