@@ -1,4 +1,5 @@
-# A library of useful javascript tools written in typescript   
+# mew-utils      
+>  A library of useful javascript tools written in typescript
 
 [![codecov](https://codecov.io/gh/cirolee/mew-utils/branch/main/graph/badge.svg)](https://codecov.io/gh/cirolee/mew-utils/branch/main)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/mew-utils)
