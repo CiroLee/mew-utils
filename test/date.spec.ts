@@ -43,10 +43,6 @@ describe('dateFormat test', () => {
     const result = date.dateFormat(mockDate);
     expect(result).toBe('2022-01-18 12:12:12');
   });
-  test('DATEFORMAT: option is boolean type true', () => {
-    const result = date.dateFormat(mockDate, false);
-    expect(result).toBe('2022-1-18 12:12:12');
-  });
   test('DATEFORMAT: option is string type', () => {
     const result = date.dateFormat(mockDate, 'yyyy/mm/dd');
     expect(result).toBe('2022/01/18');
@@ -65,7 +61,7 @@ describe('dateFormat test', () => {
   });
   test('DATEFORMAT: format is invalid', () => {
     const result = date.dateFormat(1642479132 * 1000, 'yy-mm-dd');
-    expect(result).toBe('-01-18');
+    expect(result).toBe('yy-01-18');
   });
   test('DATEFORMAT: padZero is false', () => {
     const result = date.dateFormat(1642479132 * 1000 + 28800000, {

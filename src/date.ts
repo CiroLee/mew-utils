@@ -43,9 +43,8 @@ export const week = (param?: Week | Time): string | Nullish => {
  * @param date 日期
  * @param option 选项(可选参数)
  */
-export const dateFormat = (date: Time, option?: DateFormatOption | string | boolean): string => {
+export const dateFormat = (date: Time, option?: string | DateFormatOption): string => {
   const _date = date instanceof Date ? date : new Date(date);
-  const regExp = /d{1,4}|m{1,4}|yy(?:yy)?|H{1,2}|M{1,2}|S{1,2}/g;
   let _option = {
     format: 'yyyy-mm-dd HH:MM:SS',
     padZero: true,
@@ -53,8 +52,6 @@ export const dateFormat = (date: Time, option?: DateFormatOption | string | bool
   // 参数兼容
   if (typeof option === 'string') {
     _option.format = option;
-  } else if (typeof option === 'boolean') {
-    _option.padZero = option;
   } else if (
     isAllTrue([
       getType(option) === 'object',
@@ -66,6 +63,7 @@ export const dateFormat = (date: Time, option?: DateFormatOption | string | bool
       ...option,
     };
   }
+
   const o = {
     yyyy: _date.getFullYear(),
     mm: _option.padZero ? zeroFill(_date.getMonth() + 1) : _date.getMonth() + 1,
@@ -74,11 +72,13 @@ export const dateFormat = (date: Time, option?: DateFormatOption | string | bool
     MM: _option.padZero ? zeroFill(_date.getMinutes()) : _date.getMinutes(),
     SS: _option.padZero ? zeroFill(_date.getSeconds()) : _date.getSeconds(),
   };
+  console.log('+++++', _option);
 
-  return _option.format.replace(regExp, (match) => {
-    if (match in o) {
-      return (o[match as keyof typeof option] as string).toString();
-    }
-    return '';
-  });
+  return _option.format
+    .replace(/yyyy/g, `${o.yyyy}`)
+    .replace(/mm/g, `${o.mm}`)
+    .replace(/dd/g, `${o.dd}`)
+    .replace(/HH/g, `${o.HH}`)
+    .replace(/MM/g, `${o.MM}`)
+    .replace(/SS/g, `${o.SS}`);
 };

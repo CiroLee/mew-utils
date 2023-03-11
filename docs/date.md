@@ -30,15 +30,17 @@ week({
 }); // 'Tue.' 英文星期简写末尾有点号
 ```
 
-### dateFormat(date: [Time](../src/types.ts), option?: string | boolean | [DateFormatOption](../src/types.ts)): string      
-> 日期格式化。默认格式为: yyyy-mm-dd HH:MM:SS。option为string类型时，表示格式字符串，option为布尔类型时，表示是否日期补零。二者都需要配置时，使用DateFormatOption类型         
+### dateFormat(date: [Time](../src/types.ts), option?: string | [DateFormatOption](../src/types.ts)): string
+
+> 日期格式化。默认格式为: yyyy-mm-dd HH:MM:SS。option 为 string 类型时，表示格式字符串。需要设置日期是否自动补零，使用 DateFormatOption 类型
 
 ```typescript
 dateFormat(1642479132 * 1000); // 2022-01-18 12:12:12
 dateFormat(1642479132 * 1000, false); // 2022-1-18 12:12:12
 dateFormat(1642479132 * 1000, 'yyyy/mm/dd'); // 2022/01/18
+dateFormat(1642479132 * 1000, 'yyyy年mm月dd日'); // 2022年01月18日
 dateFormat(1642479132 * 1000, {
   format: 'yyyy/mm/dd HH:MM:SS',
-  padZero: false
+  padZero: false,
 }); // 2022/1/18 12:12:12
 ```
