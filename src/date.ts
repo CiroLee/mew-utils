@@ -72,7 +72,6 @@ export const dateFormat = (date: Time, option?: string | DateFormatOption): stri
     MM: _option.padZero ? zeroFill(_date.getMinutes()) : _date.getMinutes(),
     SS: _option.padZero ? zeroFill(_date.getSeconds()) : _date.getSeconds(),
   };
-  console.log('+++++', _option);
 
   return _option.format
     .replace(/yyyy/g, `${o.yyyy}`)
