@@ -56,7 +56,7 @@ describe('dateFormat test', () => {
   });
   test('DATEFORMAT: date is timestamp', () => {
     // github action 在美区， 时区差8h
-    const result = date.dateFormat(1642479132 * 1000 + 28800000);
+    const result = date.dateFormat(1642479132 * 1000);
     expect(result).toBe('2022-01-18 12:12:12');
   });
   test('DATEFORMAT: format is invalid', () => {
@@ -64,7 +64,7 @@ describe('dateFormat test', () => {
     expect(result).toBe('yy-01-18');
   });
   test('DATEFORMAT: padZero is false', () => {
-    const result = date.dateFormat(1642479132 * 1000 + 28800000, {
+    const result = date.dateFormat(1642479132 * 1000, {
       padZero: false,
     });
     expect(result).toBe('2022-1-18 12:12:12');

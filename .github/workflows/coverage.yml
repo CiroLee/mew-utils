@@ -1,9 +1,12 @@
-name: Codecov
+name: coverage
+
 on:
   push:
     branches:
       - main
   pull_request:
+env:
+  TZ: Asia/Shanghai
 jobs:
   run:
     runs-on: ubuntu-latest
